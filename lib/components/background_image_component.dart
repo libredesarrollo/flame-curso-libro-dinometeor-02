@@ -15,7 +15,7 @@ class BackgroundImageComponent extends SpriteComponent {
 
     sprite = await Sprite.load('background.jpg');
 
-    // size = Vector2(screenWidth, screenHeight);
+    //size = Vector2(screenWidth, screenHeight);
     size = sprite!.originalSize;
 
     return super.onLoad();

@@ -13,6 +13,12 @@ import 'package:dinometeor02/utils/create_animation_by_limit.dart';
 
 class MeteorComponent extends SpriteAnimationComponent with CollisionCallbacks {
 
+  Vector2 cameraPosition;
+
+  MeteorComponent( { required this.cameraPosition } ):super(){
+    debugMode= true;
+  }
+
   static const int circleSpeed = 500;
   static const double circleWidth = 100.0, circleHeight = 100.0;
   
@@ -29,7 +35,7 @@ class MeteorComponent extends SpriteAnimationComponent with CollisionCallbacks {
     screenWidth = MediaQueryData.fromWindow(window).size.width;
     screenHeight = MediaQueryData.fromWindow(window).size.height;
 
-    position = Vector2(random.nextDouble() * screenWidth, -circleHeight);
+    position = Vector2(random.nextDouble() * screenWidth + cameraPosition.x, cameraPosition.y -circleHeight);
     size = Vector2(circleWidth, circleHeight);
 
     hitbox.paint.color = BasicPalette.green.color;
@@ -53,7 +59,7 @@ class MeteorComponent extends SpriteAnimationComponent with CollisionCallbacks {
   void update(double dt) {
     position.y += circleSpeed * dt;
 
-    if(position.y > screenHeight){
+    if(position.y > cameraPosition.y + screenHeight){
       removeFromParent();
     }
 

@@ -13,12 +13,18 @@ import 'package:dinometeor02/components/character.dart';
 import 'package:dinometeor02/utils/create_animation_by_limit.dart';
 
 class PlayerComponent extends Character {
+
+  Vector2 mapSize;
+
+  PlayerComponent({ required this.mapSize }): super(){
+    anchor = Anchor.center;
+    debugMode = true;
+  }
+
   int count = 0;
 
   @override
   Future<void>? onLoad() async {
-    anchor = Anchor.center;
-    debugMode = true;
 
     final spriteImage = await Flame.images.load('dinofull.png');
     final spriteSheet = SpriteSheet(
@@ -151,7 +157,7 @@ class PlayerComponent extends Character {
     posX = 0;
     posY = 0;
 
-    if (position.y < 900 - size[1]) {
+    if (position.y < mapSize.y - size[1]) {
       velocity.y += gravity;
       position.y += velocity.y * dt;
       inGround = false;
@@ -168,8 +174,10 @@ class PlayerComponent extends Character {
       if (points.first[0] <= 0.0) {
         // left
         collisionXLeft = true;
-      } else if (points.first[0] >=
-          MediaQueryData.fromWindow(window).size.height) {
+      } else if (points.first[0] >= mapSize.x
+          //MediaQueryData.fromWindow(window).size.height
+          
+          ) {
         // left
         collisionXRight = true;
       }
