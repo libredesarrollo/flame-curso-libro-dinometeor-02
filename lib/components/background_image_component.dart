@@ -3,13 +3,13 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flutter/widgets.dart';
 
-class BackgroundImageComponent extends SpriteComponent {
+class BackgroundImageComponent extends SpriteComponent with HasGameRef {
   late double screenWidth, screenHeight;
 
   @override
-  Future<void>? onLoad() async{
-    screenWidth = MediaQueryData.fromWindow(window).size.width;
-    screenHeight = MediaQueryData.fromWindow(window).size.height;
+  Future<void>? onLoad() async {
+    screenWidth = gameRef.size.x;
+    screenHeight = gameRef.size.y;
 
     position = Vector2(0, 0);
 

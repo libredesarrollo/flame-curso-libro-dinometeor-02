@@ -12,11 +12,10 @@ import 'package:flame/components.dart';
 import 'package:dinometeor02/components/character.dart';
 import 'package:dinometeor02/utils/create_animation_by_limit.dart';
 
-class PlayerComponent extends Character {
-
+class PlayerComponent extends Character with HasGameRef {
   Vector2 mapSize;
 
-  PlayerComponent({ required this.mapSize }): super(){
+  PlayerComponent({required this.mapSize}) : super() {
     anchor = Anchor.center;
     debugMode = true;
   }
@@ -25,7 +24,6 @@ class PlayerComponent extends Character {
 
   @override
   Future<void>? onLoad() async {
-
     final spriteImage = await Flame.images.load('dinofull.png');
     final spriteSheet = SpriteSheet(
         image: spriteImage,
@@ -48,8 +46,8 @@ class PlayerComponent extends Character {
 
     animation = idleAnimation;
 
-    screenWidth = MediaQueryData.fromWindow(window).size.width;
-    screenHeight = MediaQueryData.fromWindow(window).size.height;
+    screenWidth = gameRef.size.x;
+    screenHeight = gameRef.size.y;
 
     size = Vector2(spriteSheetWidth / 4, spriteSheetHeight / 4);
 
@@ -176,7 +174,7 @@ class PlayerComponent extends Character {
         collisionXLeft = true;
       } else if (points.first[0] >= mapSize.x
           //MediaQueryData.fromWindow(window).size.height
-          
+
           ) {
         // left
         collisionXRight = true;
