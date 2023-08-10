@@ -1,9 +1,10 @@
 import 'dart:ui';
 
 import 'package:flame/components.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flame/events.dart';
 
-class BackgroundImageComponent extends SpriteComponent with HasGameRef {
+class BackgroundImageComponent extends SpriteComponent
+    with DragCallbacks, HasGameRef {
   late double screenWidth, screenHeight;
 
   @override
@@ -19,5 +20,27 @@ class BackgroundImageComponent extends SpriteComponent with HasGameRef {
     size = sprite!.originalSize;
 
     return super.onLoad();
+  }
+
+  @override
+  void onDragStart(DragStartEvent event) {
+    print('canvasPosition--' + event.canvasPosition.toString());
+    print('devicePosition--' + event.devicePosition.toString());
+    print('localPosition--' + event.localPosition.toString());
+    print('parentPosition--' + event.parentPosition.toString());
+    super.onDragStart(event);
+  }
+
+  @override
+  void onDragUpdate(DragUpdateEvent event) {
+    print('canvasPosition--' + event.canvasPosition.toString());
+    print('devicePosition--' + event.devicePosition.toString());
+    print('localPosition--' + event.localPosition.toString());
+    print('parentPosition--' + event.parentPosition.toString());
+    print('event--' + event.delta.toString());
+
+    final camera = gameRef.firstChild<CameraComponent>()!;
+    camera.moveBy(event.delta / camera.viewfinder.zoom);
+    super.onDragUpdate(event);
   }
 }
