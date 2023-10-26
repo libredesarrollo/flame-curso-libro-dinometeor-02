@@ -1,18 +1,11 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/input.dart';
 import 'package:flame/sprite.dart';
-import 'package:flutter/material.dart';
 
-import 'package:flame/flame.dart';
 import 'package:flame/components.dart';
-
-import 'dart:ui';
-
-import 'package:flutter/services.dart';
 
 class Character extends SpriteAnimationComponent
     with KeyboardHandler, CollisionCallbacks {
-
   int animationIndex = 0;
 
   double gravity = 1.8;
@@ -36,7 +29,4 @@ class Character extends SpriteAnimationComponent
       runAnimation,
       walkAnimation,
       walkSlowAnimation;
-
-  
 }
-

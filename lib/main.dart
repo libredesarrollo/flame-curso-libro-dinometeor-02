@@ -1,4 +1,3 @@
-import 'package:dinometeor02/components/background_color_component.dart';
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
 import 'package:flame/game.dart';

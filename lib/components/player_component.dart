@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:dinometeor02/components/meteor_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
