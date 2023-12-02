@@ -22,23 +22,23 @@ class BackgroundImageComponent extends SpriteComponent
 
   @override
   void onDragStart(DragStartEvent event) {
-    print('canvasPosition--' + event.canvasPosition.toString());
-    print('devicePosition--' + event.devicePosition.toString());
-    print('localPosition--' + event.localPosition.toString());
-    print('parentPosition--' + event.parentPosition.toString());
+    // print('canvasPosition--' + event.canvasPosition.toString());
+    // print('devicePosition--' + event.devicePosition.toString());
+    // print('localPosition--' + event.localPosition.toString());
+    // print('parentPosition--' + event.parentPosition.toString());
     super.onDragStart(event);
   }
 
   @override
   void onDragUpdate(DragUpdateEvent event) {
-    print('canvasPosition--' + event.canvasPosition.toString());
-    print('devicePosition--' + event.devicePosition.toString());
-    print('localPosition--' + event.localPosition.toString());
-    print('parentPosition--' + event.parentPosition.toString());
-    print('event--' + event.delta.toString());
+    // print('canvasPosition--' + event.canvasPosition.toString());
+    // print('devicePosition--' + event.devicePosition.toString());
+    // print('localPosition--' + event.localPosition.toString());
+    // print('parentPosition--' + event.parentPosition.toString());
+    // print('event--' + event.delta.toString());
 
     final camera = gameRef.firstChild<CameraComponent>()!;
-    camera.moveBy(event.delta / camera.viewfinder.zoom);
+    camera.moveBy(event.localDelta / camera.viewfinder.zoom);
     super.onDragUpdate(event);
   }
 }
