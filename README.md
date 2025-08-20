@@ -6,7 +6,7 @@ Este capítulo empezaremos creando la estructura de un sencillo juego en 2D de c
 Acceso al curso y libro (disponible también en ingles):
 
 https://www.desarrollolibre.net/blog/flutter/flame-desarrollo-de-juegos-en-2d-con-flutter
-https://www.desarrollolibre.net/libros/flutter-flame-2d-game
+[https://www.desarrollolibre.net/libros/flutter-flame-2d-game](https://www.desarrollolibre.net/libros/flutter-flame-desarrollo-de-juegos-en-2d)
 ---
 
 ##  Descripción
