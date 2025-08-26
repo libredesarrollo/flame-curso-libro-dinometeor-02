@@ -1,6 +1,6 @@
 # Dinometeor02 – Curso Flutter + Flame
 
-Un proyecto de base en Flutter que acompaña el curso “Libro Dinometeor” usando Flame, el motor de juegos para Flutter.
+Un proyecto de base en Flutter que acompaña el curso “Libro Dinometeor” usando Flame, el motor de juegos para Flutter. Veremos como crear un juego en 2D con saltos, desplazamientos, colisiones, consumibles, daño y más.
 
 Este capítulo empezaremos creando la estructura de un sencillo juego en 2D de colisiones utilizando como base parte del código visto en el capítulo anterior.
 Acceso al curso y libro (disponible también en ingles):
